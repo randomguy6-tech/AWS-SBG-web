@@ -35,8 +35,13 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <div className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent mb-4">
-              AWS SBG UOK
+            <div className="flex items-center gap-3 mb-4">
+              <img src="/aws-sbg-logo.png" alt="AWS SBG UOK" className="h-10 w-10" />
+              <div className="flex items-center gap-1">
+                <span className="text-lg font-bold text-white">AWS</span>
+                <span className="text-lg font-bold bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">SBG</span>
+                <span className="text-lg font-bold text-white">UOK</span>
+              </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
               Empowering students at University of Karachi with cloud computing knowledge and practical AWS skills.

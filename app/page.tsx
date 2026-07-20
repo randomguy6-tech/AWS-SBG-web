@@ -7,7 +7,6 @@ import About from '@/components/about';
 import Domains from '@/components/domains';
 import Benefits from '@/components/benefits';
 import AWSServices from '@/components/aws-services';
-import Timeline from '@/components/timeline';
 import Leadership from '@/components/leadership';
 import Gallery from '@/components/gallery';
 import Testimonials from '@/components/testimonials';
@@ -31,9 +30,6 @@ export default function Home() {
       </div>
       <Benefits />
       <AWSServices />
-      <div id="events">
-        <Timeline />
-      </div>
       <div id="leadership">
         <Leadership />
       </div>

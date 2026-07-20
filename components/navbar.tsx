@@ -2,27 +2,20 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Moon, Sun } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [isDark, setIsDark] = useState(true);
   const [activeSection, setActiveSection] = useState('home');
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    setIsDark(savedTheme === 'dark');
-    document.documentElement.classList.toggle('dark', savedTheme === 'dark');
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
       
       // Update active section
-      const sections = ['home', 'about', 'domains', 'events', 'leadership', 'gallery', 'testimonials', 'faq', 'contact'];
+      const sections = ['home', 'about', 'domains', 'leadership', 'gallery', 'testimonials', 'faq', 'contact'];
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -39,18 +32,10 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleTheme = () => {
-    const newTheme = isDark ? 'light' : 'dark';
-    setIsDark(!isDark);
-    localStorage.setItem('theme', newTheme);
-    document.documentElement.classList.toggle('dark', newTheme === 'dark');
-  };
-
   const navItems = [
     { label: 'Home', href: '#home' },
     { label: 'About', href: '#about' },
     { label: 'Domains', href: '#domains' },
-    { label: 'Events', href: '#events' },
     { label: 'Leadership', href: '#leadership' },
     { label: 'Gallery', href: '#gallery' },
     { label: 'Testimonials', href: '#testimonials' },
@@ -72,9 +57,7 @@ const Navbar = () => {
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? isDark
-            ? 'bg-black/40 backdrop-blur-md border-b border-purple-500/20'
-            : 'bg-white/40 backdrop-blur-md border-b border-purple-500/20'
+          ? 'bg-black/40 backdrop-blur-md border-b border-purple-500/20'
           : 'bg-transparent'
       }`}
       initial={{ y: -100 }}
@@ -88,10 +71,15 @@ const Navbar = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="flex-shrink-0"
+            className="flex-shrink-0 flex items-center gap-2"
           >
-            <a href="#home" onClick={(e) => handleNavClick(e, '#home')} className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
-              AWS SBG UOK
+            <a href="#home" onClick={(e) => handleNavClick(e, '#home')} className="flex items-center gap-2">
+              <img src="/aws-sbg-logo.png" alt="AWS SBG UOK" className="h-10 w-10" />
+              <div className="hidden sm:flex items-center gap-1">
+                <span className="text-lg font-bold text-white">AWS</span>
+                <span className="text-lg font-bold bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">SBG</span>
+                <span className="text-lg font-bold text-white">UOK</span>
+              </div>
             </a>
           </motion.div>
 
@@ -104,12 +92,8 @@ const Navbar = () => {
                 onClick={(e) => handleNavClick(e, item.href)}
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-all relative ${
                   activeSection === item.href.replace('#', '')
-                    ? isDark
-                      ? 'text-purple-400'
-                      : 'text-purple-600'
-                    : isDark
-                    ? 'text-gray-300 hover:text-white'
-                    : 'text-gray-700 hover:text-gray-900'
+                    ? 'text-purple-400'
+                    : 'text-gray-300 hover:text-white'
                 }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -126,34 +110,15 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Theme Toggle & Mobile Menu Button */}
-          <div className="flex items-center space-x-4">
-            <motion.button
-              onClick={toggleTheme}
-              className={`p-2 rounded-lg transition-all ${
-                isDark
-                  ? 'bg-purple-500/20 hover:bg-purple-500/30 text-purple-400'
-                  : 'bg-purple-500/20 hover:bg-purple-500/30 text-purple-600'
-              }`}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {isDark ? <Sun size={20} /> : <Moon size={20} />}
-            </motion.button>
-
-            <motion.button
-              onClick={() => setIsOpen(!isOpen)}
-              className={`md:hidden p-2 rounded-lg transition-all ${
-                isDark
-                  ? 'bg-purple-500/20 hover:bg-purple-500/30 text-purple-400'
-                  : 'bg-purple-500/20 hover:bg-purple-500/30 text-purple-600'
-              }`}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </motion.button>
-          </div>
+          {/* Mobile Menu Button */}
+          <motion.button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden p-2 rounded-lg transition-all bg-purple-500/20 hover:bg-purple-500/30 text-purple-400"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </motion.button>
         </div>
 
         {/* Mobile Navigation */}
@@ -166,9 +131,7 @@ const Navbar = () => {
               transition={{ duration: 0.3 }}
               className="md:hidden overflow-hidden"
             >
-              <div className={`px-2 pt-2 pb-3 space-y-1 ${
-                isDark ? 'bg-black/50' : 'bg-white/50'
-              } backdrop-blur-md rounded-b-lg`}>
+              <div className="px-2 pt-2 pb-3 space-y-1 bg-black/50 backdrop-blur-md rounded-b-lg">
                 {navItems.map((item, i) => (
                   <motion.a
                     key={i}
@@ -176,10 +139,8 @@ const Navbar = () => {
                     onClick={(e) => handleNavClick(e, item.href)}
                     className={`block px-3 py-2 rounded-md text-base font-medium transition-all ${
                       activeSection === item.href.replace('#', '')
-                        ? `bg-purple-500/30 ${isDark ? 'text-purple-400' : 'text-purple-600'}`
-                        : isDark
-                        ? 'text-gray-300 hover:text-white hover:bg-purple-500/20'
-                        : 'text-gray-700 hover:text-gray-900 hover:bg-purple-500/20'
+                        ? 'bg-purple-500/30 text-purple-400'
+                        : 'text-gray-300 hover:text-white hover:bg-purple-500/20'
                     }`}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
