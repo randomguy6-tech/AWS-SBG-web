@@ -95,10 +95,6 @@ const HeroNavbar = () => {
           className="flex items-center gap-3"
         >
           <img src="/aws-sbg-logo.png" alt="AWS SBG UOK" className="h-12 w-12" />
-          <div className="hidden sm:block">
-            <div className="text-sm font-bold text-white">AWS SBG UOK</div>
-            <div className="text-xs text-gray-400">University of Karachi</div>
-          </div>
         </motion.div>
 
         {/* Social links - placeholder for future */}
@@ -192,7 +188,7 @@ export const Hero = () => {
             }}
           >
             <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
-            Empowering Cloud Innovators
+            Backed by AWS
           </div>
         </motion.div>
 
@@ -205,9 +201,9 @@ export const Hero = () => {
             textShadow: `0 0 30px rgba(124, 58, 237, 0.3)`,
           }}
         >
-          Build.{' '}
-          <span style={{ color: THEME_COLORS.primary }}>Learn.</span>{' '}
-          Innovate.
+          AWS{' '}
+          <span style={{ color: THEME_COLORS.primary }}>SBG</span>{' '}
+          UOK
         </motion.h1>
 
         {/* Subheading */}
