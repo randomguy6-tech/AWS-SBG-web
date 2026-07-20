@@ -3,8 +3,8 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Voyager - Launch Your Future',
-  description: 'Step into a universe of infinite possibilities with cutting-edge technology and stunning visual experiences.',
+  title: 'AWS SBG UOK - Build. Learn. Innovate.',
+  description: 'AWS Student Builder Group at University of Karachi. Empowering students with Cloud Computing, AI, DevOps, and modern software engineering through workshops, projects, hackathons and community events.',
   generator: 'v0.app',
   icons: {
     icon: [
