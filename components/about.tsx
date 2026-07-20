@@ -19,20 +19,15 @@ const About = () => {
             About AWS SBG UOK
           </h2>
 
-          <motion.div
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-r from-purple-500/20 to-purple-600/20 border border-purple-500/30 rounded-xl p-6"
+            className="text-lg text-gray-300 leading-relaxed"
           >
-            <h3 className="text-2xl font-bold text-transparent bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text mb-3">
-              Who We Are
-            </h3>
-            <p className="text-xl text-gray-100 font-semibold">
-              We are active 40 members of team dedicated to empowering students at the University of Karachi with cloud computing knowledge and real-world AWS experience.
-            </p>
-          </motion.div>
+            We are active 40 members of team dedicated to empowering students at the University of Karachi with cloud computing knowledge and real-world AWS experience.
+          </motion.p>
         </motion.div>
 
         {/* Right Image */}

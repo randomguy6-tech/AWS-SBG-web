@@ -3,14 +3,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { socials } from '@/lib/data';
-import * as Icons from 'lucide-react';
 
 const JoinCommunity = () => {
-  const iconMap: { [key: string]: React.ComponentType<any> } = {
-    Instagram: Icons.Share2,
-    Linkedin: Icons.Share2,
-    MessageCircle: Icons.MessageCircle,
-    Users: Icons.Users,
+  const getPlatformIcon = (platform: string) => {
+    const icons: { [key: string]: string } = {
+      Instagram: '📷',
+      LinkedIn: '💼',
+      WhatsApp: '💬',
+      Meetup: '👥',
+    };
+    return icons[platform] || '🔗';
   };
 
   return (
@@ -33,7 +35,7 @@ const JoinCommunity = () => {
       {/* Social Links */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {socials.map((social, index) => {
-          const IconComponent = iconMap[social.icon];
+          const platformIcon = getPlatformIcon(social.name);
           return (
             <motion.a
               key={social.name}
@@ -70,16 +72,14 @@ const JoinCommunity = () => {
               {/* Content */}
               <div className="relative z-10">
                 <motion.div
-                  className="mb-4 inline-flex p-4 rounded-lg"
+                  className="mb-4 inline-flex p-4 rounded-lg text-4xl"
                   style={{
                     background: 'rgba(124, 58, 237, 0.2)',
                     border: '1px solid rgba(124, 58, 237, 0.4)',
                   }}
                   whileHover={{ scale: 1.1, rotate: 5 }}
                 >
-                  <div className="text-purple-300 text-2xl">
-                    {IconComponent && <IconComponent size={32} />}
-                  </div>
+                  {platformIcon}
                 </motion.div>
                 <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-purple-300 transition-colors">
                   {social.name}
