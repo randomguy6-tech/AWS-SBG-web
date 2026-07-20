@@ -2,7 +2,6 @@
 
 import Navbar from '@/components/navbar';
 import Hero from '@/components/hero';
-import Stats from '@/components/stats';
 import About from '@/components/about';
 import Domains from '@/components/domains';
 import Benefits from '@/components/benefits';
@@ -21,7 +20,6 @@ export default function Home() {
       <div id="home">
         <Hero />
       </div>
-      <Stats />
       <div id="about">
         <About />
       </div>

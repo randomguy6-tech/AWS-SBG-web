@@ -72,53 +72,6 @@ const BackgroundEffects = () => {
   );
 };
 
-// Navigation bar
-const HeroNavbar = () => {
-  return (
-    <motion.nav
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.1, duration: 0.8 }}
-      className="absolute top-0 left-0 right-0 z-20 px-6 py-4"
-      style={{
-        background: 'rgba(9, 9, 11, 0.6)',
-        backdropFilter: 'blur(10px)',
-        WebkitBackdropFilter: 'blur(10px)',
-      }}
-    >
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
-        {/* Logo */}
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-          className="flex items-center gap-3"
-        >
-          <img src="/aws-sbg-logo.png" alt="AWS SBG UOK" className="h-12 w-12" />
-        </motion.div>
-
-        {/* Social links - placeholder for future */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.8 }}
-          className="flex gap-4"
-        >
-          <button className="text-gray-400 hover:text-purple-400 transition-colors text-sm">
-            Home
-          </button>
-          <button className="text-gray-400 hover:text-purple-400 transition-colors text-sm">
-            About
-          </button>
-          <button className="text-gray-400 hover:text-purple-400 transition-colors text-sm">
-            Events
-          </button>
-        </motion.div>
-      </div>
-    </motion.nav>
-  );
-};
-
 // Main Hero Component
 export const Hero = () => {
   const [mounted, setMounted] = useState(false);
@@ -153,9 +106,6 @@ export const Hero = () => {
     <section className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black pt-20">
       {/* Background */}
       <BackgroundEffects />
-
-      {/* Navbar */}
-      <HeroNavbar />
 
       {/* Main Content */}
       <motion.div
