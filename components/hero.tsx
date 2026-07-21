@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, ExternalLink } from 'lucide-react';
+import ShaderBackground from '@/components/ui/shader-background';
 
 const THEME_COLORS = {
   primary: '#7C3AED',
@@ -10,66 +11,6 @@ const THEME_COLORS = {
   black: '#09090B',
   white: '#FFFFFF',
   gray: '#A1A1AA',
-};
-
-// Animated background with gradient and subtle effects
-const BackgroundEffects = () => {
-  return (
-    <div className="absolute inset-0 z-0 overflow-hidden bg-black">
-      {/* Radial gradient background */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background: `radial-gradient(ellipse at center, rgba(124, 58, 237, 0.15) 0%, rgba(91, 33, 182, 0.05) 50%, #09090B 100%)`,
-        }}
-      />
-      
-      {/* Animated grid */}
-      <div className="absolute inset-0 opacity-20" style={{
-        backgroundImage: `linear-gradient(0deg, transparent 24%, rgba(124, 58, 237, 0.08) 25%, rgba(124, 58, 237, 0.08) 26%, transparent 27%, transparent 74%, rgba(124, 58, 237, 0.08) 75%, rgba(124, 58, 237, 0.08) 76%, transparent 77%, transparent),
-                          linear-gradient(90deg, transparent 24%, rgba(124, 58, 237, 0.08) 25%, rgba(124, 58, 237, 0.08) 26%, transparent 27%, transparent 74%, rgba(124, 58, 237, 0.08) 75%, rgba(124, 58, 237, 0.08) 76%, transparent 77%, transparent)`,
-        backgroundSize: '50px 50px',
-      }} />
-
-      {/* Floating orbs */}
-      <motion.div
-        className="absolute w-96 h-96 rounded-full blur-3xl opacity-20"
-        style={{
-          background: `linear-gradient(135deg, ${THEME_COLORS.primary}, ${THEME_COLORS.darkPurple})`,
-          top: '-10%',
-          right: '-5%',
-        }}
-        animate={{
-          y: [0, 30, 0],
-          x: [0, 20, 0],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
-      />
-
-      <motion.div
-        className="absolute w-80 h-80 rounded-full blur-3xl opacity-15"
-        style={{
-          background: `linear-gradient(135deg, ${THEME_COLORS.darkPurple}, ${THEME_COLORS.primary})`,
-          bottom: '-5%',
-          left: '-3%',
-        }}
-        animate={{
-          y: [0, -30, 0],
-          x: [0, -20, 0],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: 'easeInOut',
-          delay: 1,
-        }}
-      />
-    </div>
-  );
 };
 
 // Main Hero Component
@@ -104,8 +45,8 @@ export const Hero = () => {
 
   return (
     <section className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black pt-20">
-      {/* Background */}
-      <BackgroundEffects />
+      {/* Shader Background */}
+      <ShaderBackground />
 
       {/* Main Content */}
       <motion.div
