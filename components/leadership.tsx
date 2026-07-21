@@ -61,28 +61,23 @@ const Leadership = () => {
 
             {/* Content */}
             <div className="relative z-10 p-8 text-center">
-              {/* Image Placeholder */}
+              {/* Team Member Image */}
               <motion.div
-                className="mb-6 w-32 h-32 mx-auto rounded-full overflow-hidden"
+                className="mb-6 w-40 h-40 mx-auto rounded-2xl overflow-hidden shadow-lg"
                 style={{
-                  background: 'linear-gradient(135deg, rgba(124, 58, 237, 0.3) 0%, rgba(91, 33, 182, 0.2) 100%)',
-                  border: '2px solid rgba(124, 58, 237, 0.5)',
+                  border: '3px solid rgba(124, 58, 237, 0.5)',
+                  boxShadow: '0 0 30px rgba(124, 58, 237, 0.2)',
                 }}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(124, 58, 237, 0.4)' }}
               >
-                <div className="w-full h-full flex items-center justify-center">
-                  <svg
-                    className="w-16 h-16 text-purple-400/50"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </div>
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full h-full object-cover object-center"
+                  style={{
+                    filter: 'brightness(1.05)',
+                  }}
+                />
               </motion.div>
 
               {/* Name */}

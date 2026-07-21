@@ -3,7 +3,7 @@ export const team = [
     id: 1,
     name: "Hamza",
     role: "AWS Student Builder Group UOK Leader",
-    image: "https://api.placeholder.com/200/200?text=Hamza",
+    image: "/hamza.png",
     socials: {
       linkedin: "#",
       twitter: "#",
@@ -14,7 +14,7 @@ export const team = [
     id: 2,
     name: "Arham Sheikh",
     role: "Event Management Lead",
-    image: "https://api.placeholder.com/200/200?text=Arham",
+    image: "/arham-sheikh.png",
     socials: {
       linkedin: "#",
       twitter: "#",
@@ -25,7 +25,7 @@ export const team = [
     id: 3,
     name: "Shaheer",
     role: "Tech Lead",
-    image: "https://api.placeholder.com/200/200?text=Shaheer",
+    image: "/shaheer.png",
     socials: {
       linkedin: "#",
       twitter: "#",
@@ -36,7 +36,7 @@ export const team = [
     id: 4,
     name: "Maira Khan",
     role: "Graphics Lead",
-    image: "https://api.placeholder.com/200/200?text=Maira",
+    image: "/maira-khan.png",
     socials: {
       linkedin: "#",
       twitter: "#",
@@ -47,7 +47,7 @@ export const team = [
     id: 5,
     name: "Sami",
     role: "Social Media Lead",
-    image: "https://api.placeholder.com/200/200?text=Sami",
+    image: "/sami.png",
     socials: {
       linkedin: "#",
       twitter: "#",
@@ -58,7 +58,7 @@ export const team = [
     id: 6,
     name: "Rohaan",
     role: "Marketing Lead",
-    image: "https://api.placeholder.com/200/200?text=Rohaan",
+    image: "/rohaan.png",
     socials: {
       linkedin: "#",
       twitter: "#",
