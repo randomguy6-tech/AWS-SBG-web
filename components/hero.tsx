@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, ExternalLink } from 'lucide-react';
-import ShaderBackground from '@/components/ui/shader-background';
 
 const THEME_COLORS = {
   primary: '#7C3AED',
@@ -45,8 +44,33 @@ export const Hero = () => {
 
   return (
     <section className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black pt-20">
-      {/* Shader Background */}
-      <ShaderBackground />
+      {/* Campus Illustration Background */}
+      <div className="absolute inset-0 z-0" aria-hidden="true">
+        {/* Base image: anchored to the bottom so the building/trees always sit at the base
+            while the purple sky fills the space behind the content on any screen size */}
+        <div
+          className="absolute inset-0 bg-no-repeat"
+          style={{
+            backgroundImage: `url('/hero-campus-bg.jpeg')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center bottom',
+          }}
+        />
+        {/* Purple sky extension so the top never shows a hard edge on tall/wide screens */}
+        <div
+          className="absolute inset-x-0 top-0 h-2/3"
+          style={{
+            background: `linear-gradient(to bottom, #2a1b4d 0%, rgba(42, 27, 77, 0.4) 60%, transparent 100%)`,
+          }}
+        />
+        {/* Readability overlay behind the hero content */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: `radial-gradient(ellipse 80% 60% at 50% 40%, rgba(9, 9, 11, 0.65) 0%, rgba(9, 9, 11, 0.35) 45%, transparent 75%)`,
+          }}
+        />
+      </div>
 
       {/* Main Content */}
       <motion.div
