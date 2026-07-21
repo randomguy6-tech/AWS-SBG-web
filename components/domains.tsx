@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { domains } from '@/lib/data';
 import InfiniteCarousel from './infinite-carousel';
+import SectionHeading from './section-heading';
 import * as Icons from 'lucide-react';
 
 const Domains = () => {
@@ -20,65 +21,35 @@ const Domains = () => {
     const IconComponent = iconMap[domain.icon];
     return (
       <motion.div
-        className="group relative overflow-hidden rounded-xl p-8 h-full cursor-pointer"
-        style={{
-          background: 'linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(91, 33, 182, 0.05) 100%)',
-          border: '1px solid rgba(124, 58, 237, 0.2)',
-        }}
-        whileHover={{
-          scale: 1.05,
-          boxShadow: '0 0 40px rgba(124, 58, 237, 0.6)',
-        }}
+        className="surface-card group relative overflow-hidden rounded-2xl p-7 h-full cursor-pointer"
+        whileHover={{ y: -6 }}
+        transition={{ type: 'spring', stiffness: 300, damping: 24 }}
       >
-        {/* Animated Border */}
-        <motion.div
-          className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-300"
-          style={{
-            background: 'linear-gradient(135deg, transparent 0%, rgba(124, 58, 237, 0.3) 100%)',
-            padding: '1px',
-          }}
-        />
-
         {/* Content */}
         <div className="relative z-10">
-          <div className="mb-6 text-purple-400 group-hover:text-purple-300 transition-colors">
-            {IconComponent && <IconComponent size={40} />}
+          <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-purple-500/10 text-purple-400 ring-1 ring-purple-500/20 transition-colors group-hover:bg-purple-500/20 group-hover:text-purple-300">
+            {IconComponent && <IconComponent size={24} />}
           </div>
-          <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">
+          <h3 className="text-lg font-semibold text-white mb-2 tracking-tight group-hover:text-purple-300 transition-colors">
             {domain.name}
           </h3>
-          <p className="text-gray-400 group-hover:text-gray-300 transition-colors">
+          <p className="text-sm leading-relaxed text-gray-400 group-hover:text-gray-300 transition-colors">
             {domain.description}
           </p>
-
-          {/* Glow Effect */}
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-br from-purple-500/0 via-transparent to-purple-500/0 group-hover:from-purple-500/20 group-hover:to-purple-500/10 opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-xl"
-            animate={{ scale: [1, 1.1, 1] }}
-            transition={{ duration: 3, repeat: Infinity }}
-          />
         </div>
       </motion.div>
     );
   };
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8">
+    <section className="py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="mb-12 text-center"
-        >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">
-            Our Domains
-          </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Explore the diverse areas of expertise we focus on
-          </p>
-        </motion.div>
+        <SectionHeading
+          eyebrow="What we cover"
+          title="Our Domains"
+          subtitle="Explore the diverse areas of expertise we focus on"
+          className="mb-14"
+        />
 
         <div className="relative px-4">
           <InfiniteCarousel

@@ -86,15 +86,14 @@ export const Hero = () => {
         {/* Badge */}
         <motion.div variants={itemVariants} className="mb-6 inline-block">
           <div
-            className="px-4 py-2 rounded-full text-xs sm:text-sm font-semibold inline-flex items-center gap-2"
+            className="px-4 py-1.5 rounded-full text-xs font-medium uppercase tracking-[0.15em] inline-flex items-center gap-2 text-purple-200"
             style={{
-              color: THEME_COLORS.primary,
-              border: `1px solid ${THEME_COLORS.primary}`,
-              background: `rgba(124, 58, 237, 0.1)`,
+              border: `1px solid rgba(124, 58, 237, 0.4)`,
+              background: `rgba(124, 58, 237, 0.08)`,
               backdropFilter: 'blur(10px)',
             }}
           >
-            <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
+            <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
             Backed by AWS
           </div>
         </motion.div>
@@ -102,10 +101,9 @@ export const Hero = () => {
         {/* Main Headline */}
         <motion.h1
           variants={itemVariants}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight"
+          className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 tracking-tight leading-[1.05]"
           style={{
             color: THEME_COLORS.white,
-            textShadow: `0 0 30px rgba(124, 58, 237, 0.3)`,
           }}
         >
           AWS{' '}
@@ -116,7 +114,7 @@ export const Hero = () => {
         {/* Subheading */}
         <motion.p
           variants={itemVariants}
-          className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 leading-relaxed max-w-3xl mx-auto"
+          className="text-base sm:text-lg text-gray-300/90 mb-10 leading-relaxed max-w-2xl mx-auto text-pretty"
         >
           Empowering University of Karachi students with Cloud Computing, AI, DevOps, and modern software
           engineering through workshops, projects, hackathons and community events.
@@ -131,45 +129,41 @@ export const Hero = () => {
             href="https://www.meetup.com/aws-cloud-club-at-univ-of-karachi/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative px-8 py-4 rounded-lg font-semibold text-white text-base sm:text-lg transition-all duration-300 overflow-hidden inline-flex items-center justify-center gap-2"
+            className="group relative px-7 py-3.5 rounded-xl font-medium text-white text-base transition-all duration-300 overflow-hidden inline-flex items-center justify-center gap-2"
             style={{
               background: `linear-gradient(135deg, ${THEME_COLORS.primary}, ${THEME_COLORS.darkPurple})`,
-              boxShadow: `0 0 30px ${THEME_COLORS.primary}60`,
-              border: `1px solid rgba(255, 255, 255, 0.2)`,
+              boxShadow: `0 8px 30px -8px ${THEME_COLORS.primary}`,
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.boxShadow = `0 0 50px ${THEME_COLORS.primary}80, 0 0 100px ${THEME_COLORS.primary}40`;
+              e.currentTarget.style.boxShadow = `0 12px 40px -8px ${THEME_COLORS.primary}`;
               e.currentTarget.style.transform = 'translateY(-2px)';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.boxShadow = `0 0 30px ${THEME_COLORS.primary}60`;
+              e.currentTarget.style.boxShadow = `0 8px 30px -8px ${THEME_COLORS.primary}`;
               e.currentTarget.style.transform = 'translateY(0)';
             }}
           >
             Join Meetup Group
-            <ExternalLink size={18} className="group-hover:translate-x-1 transition-transform" />
+            <ExternalLink size={17} className="group-hover:translate-x-0.5 transition-transform" />
           </a>
 
           <a
             href="https://chat.whatsapp.com/KeybuWmbJMdJxQ5uu2cpmd?mode=gi_t"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-8 py-4 rounded-lg font-semibold text-white text-base sm:text-lg transition-all duration-300 inline-block"
+            className="px-7 py-3.5 rounded-xl font-medium text-white text-base transition-all duration-300 inline-block"
             style={{
-              background: `rgba(124, 58, 237, 0.15)`,
+              background: `rgba(124, 58, 237, 0.08)`,
               backdropFilter: 'blur(10px)',
               WebkitBackdropFilter: 'blur(10px)',
-              border: `1.5px solid ${THEME_COLORS.primary}`,
-              boxShadow: `0 0 20px ${THEME_COLORS.primary}40`,
+              border: `1px solid rgba(124, 58, 237, 0.4)`,
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = `rgba(124, 58, 237, 0.25)`;
-              e.currentTarget.style.boxShadow = `0 0 40px ${THEME_COLORS.primary}60`;
+              e.currentTarget.style.background = `rgba(124, 58, 237, 0.16)`;
               e.currentTarget.style.transform = 'translateY(-2px)';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.background = `rgba(124, 58, 237, 0.15)`;
-              e.currentTarget.style.boxShadow = `0 0 20px ${THEME_COLORS.primary}40`;
+              e.currentTarget.style.background = `rgba(124, 58, 237, 0.08)`;
               e.currentTarget.style.transform = 'translateY(0)';
             }}
           >

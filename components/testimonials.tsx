@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { testimonials } from '@/lib/data';
+import SectionHeading from './section-heading';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 
 const Testimonials = () => {
@@ -41,24 +42,13 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-        className="mb-12 text-center"
-      >
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 text-white">
-          What Students Said
-        </h2>
-        <p className="text-gray-400 text-lg mb-4">
-          About Our Launch Event
-        </p>
-        <p className="text-gray-500 text-base max-w-2xl mx-auto">
-          Real feedback shared by attendees after the AWS Student Builder Group UOK Launch Event.
-        </p>
-      </motion.div>
+    <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <SectionHeading
+        eyebrow="Testimonials"
+        title="What Students Said"
+        subtitle="Real feedback shared by attendees after the AWS Student Builder Group UOK Launch Event."
+        className="mb-14"
+      />
 
       {/* Carousel */}
       <div

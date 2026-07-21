@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import SectionHeading from './section-heading';
 
 const Gallery = () => {
   const [hoveredImage, setHoveredImage] = useState<number | null>(null);
@@ -15,21 +16,13 @@ const Gallery = () => {
   ];
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-        className="mb-12 text-center"
-      >
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">
-          Gallery
-        </h2>
-        <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-          Memorable moments from our events and workshops
-        </p>
-      </motion.div>
+    <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <SectionHeading
+        eyebrow="Moments"
+        title="Gallery"
+        subtitle="Memorable moments from our events and workshops"
+        className="mb-14"
+      />
 
       <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4">
         {images.map((image, index) => (
