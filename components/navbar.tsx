@@ -15,7 +15,7 @@ const Navbar = () => {
       setScrolled(window.scrollY > 50);
       
       // Update active section
-      const sections = ['home', 'about', 'domains', 'leadership', 'gallery', 'testimonials', 'faq', 'contact'];
+      const sections = ['home', 'about', 'domains', 'leadership', 'gallery', 'testimonials', 'faq'];
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -43,13 +43,30 @@ const Navbar = () => {
     { label: 'Contact', href: '#contact' },
   ];
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
+  const HEADER_OFFSET = 80; // matches the fixed navbar height (h-20)
+
+  const scrollToSection = (href: string) => {
     const id = href.replace('#', '');
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsOpen(false);
+      const top =
+        element.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
+      window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
+    }
+  };
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const wasOpen = isOpen;
+    // Always close the mobile menu when a link is tapped
+    setIsOpen(false);
+
+    if (wasOpen) {
+      // Wait for the mobile menu collapse to settle so its height change
+      // does not interrupt the smooth scroll, then scroll to the section.
+      setTimeout(() => scrollToSection(href), 350);
+    } else {
+      scrollToSection(href);
     }
   };
 
