@@ -55,7 +55,7 @@ const Footer = () => {
             transition={{ delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <h4 className="font-bold text-white mb-4">Quick Links</h4>
+            <h4 className="text-xs font-medium uppercase tracking-[0.15em] text-gray-500 mb-4">Quick Links</h4>
             <ul className="space-y-2">
               {quickLinks.slice(0, 3).map((link) => (
                 <li key={link.name}>
@@ -77,7 +77,7 @@ const Footer = () => {
             transition={{ delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h4 className="font-bold text-white mb-4">More</h4>
+            <h4 className="text-xs font-medium uppercase tracking-[0.15em] text-gray-500 mb-4">More</h4>
             <ul className="space-y-2">
               {quickLinks.slice(3).map((link) => (
                 <li key={link.name}>
@@ -99,7 +99,7 @@ const Footer = () => {
             transition={{ delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <h4 className="font-bold text-white mb-4">Connect</h4>
+            <h4 className="text-xs font-medium uppercase tracking-[0.15em] text-gray-500 mb-4">Connect</h4>
             <div className="space-y-3">
               {socials.map((social) => (
                 <motion.a
@@ -134,10 +134,10 @@ const Footer = () => {
           className="text-center text-gray-400 text-sm"
         >
           <p>
-            Built with <span className="text-red-500">❤️</span> by AWS Student Builder Group UOK
+            AWS Student Builder Group UOK
           </p>
           <p className="mt-2 text-xs text-gray-500">
-            © 2024 AWS Student Builder Group at University of Karachi. All rights reserved.
+            © 2026 AWS Student Builder Group at University of Karachi. All rights reserved.
           </p>
         </motion.div>
       </div>

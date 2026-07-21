@@ -3,29 +3,22 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { faq } from '@/lib/data';
+import SectionHeading from './section-heading';
 import { ChevronDown } from 'lucide-react';
 
 const FAQ = () => {
   const [openId, setOpenId] = useState<number | null>(0);
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-        className="mb-12 text-center"
-      >
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">
-          Frequently Asked Questions
-        </h2>
-        <p className="text-gray-400 text-lg">
-          Everything you need to know about joining us
-        </p>
-      </motion.div>
+    <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+      <SectionHeading
+        eyebrow="FAQ"
+        title="Frequently Asked Questions"
+        subtitle="Everything you need to know about joining us"
+        className="mb-14"
+      />
 
-      <div className="space-y-4">
+      <div className="space-y-3">
         {faq.map((item, index) => (
           <motion.div
             key={item.id}
@@ -37,24 +30,20 @@ const FAQ = () => {
           >
             <motion.button
               onClick={() => setOpenId(openId === item.id ? null : item.id)}
-              className="w-full text-left p-6 rounded-lg backdrop-blur-md transition-all duration-300"
+              className="w-full text-left p-5 rounded-xl transition-colors duration-300"
               style={{
                 background:
                   openId === item.id
-                    ? 'linear-gradient(135deg, rgba(124, 58, 237, 0.2) 0%, rgba(91, 33, 182, 0.1) 100%)'
-                    : 'linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(91, 33, 182, 0.05) 100%)',
+                    ? 'rgba(124, 58, 237, 0.12)'
+                    : 'rgba(124, 58, 237, 0.05)',
                 border:
                   openId === item.id
-                    ? '1px solid rgba(124, 58, 237, 0.5)'
-                    : '1px solid rgba(124, 58, 237, 0.2)',
-              }}
-              whileHover={{
-                scale: 1.02,
-                boxShadow: '0 0 20px rgba(124, 58, 237, 0.3)',
+                    ? '1px solid rgba(124, 58, 237, 0.45)'
+                    : '1px solid rgba(124, 58, 237, 0.16)',
               }}
             >
-              <div className="flex items-center justify-between">
-                <h3 className="text-lg font-semibold text-white group-hover:text-purple-300 transition-colors">
+              <div className="flex items-center justify-between gap-4">
+                <h3 className="text-base md:text-lg font-medium text-white group-hover:text-purple-300 transition-colors">
                   {item.question}
                 </h3>
                 <motion.div

@@ -15,29 +15,31 @@ export default function Home() {
   return (
     <main className="w-full bg-black">
       <Navbar />
-      <div id="home">
+      <div id="home" className="scroll-mt-20">
         <Hero />
       </div>
-      <div id="about">
+      <div id="about" className="scroll-mt-20">
         <About />
       </div>
-      <div id="domains">
+      <div id="domains" className="scroll-mt-20">
         <Domains />
       </div>
       <Benefits />
-      <div id="leadership">
+      <div id="leadership" className="scroll-mt-20">
         <Leadership />
       </div>
-      <div id="gallery">
+      <div id="gallery" className="scroll-mt-20">
         <Gallery />
       </div>
-      <div id="testimonials">
+      <div id="testimonials" className="scroll-mt-20">
         <Testimonials />
       </div>
-      <div id="faq">
+      <div id="faq" className="scroll-mt-20">
         <FAQ />
       </div>
-      <Footer />
+      <div id="contact" className="scroll-mt-20">
+        <Footer />
+      </div>
     </main>
   );
 }

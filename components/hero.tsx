@@ -1,9 +1,8 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown, ExternalLink } from 'lucide-react';
-import ShaderBackground from '@/components/ui/shader-background';
+import { ExternalLink } from 'lucide-react';
 
 const THEME_COLORS = {
   primary: '#7C3AED',
@@ -15,14 +14,6 @@ const THEME_COLORS = {
 
 // Main Hero Component
 export const Hero = () => {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null;
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -45,8 +36,33 @@ export const Hero = () => {
 
   return (
     <section className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black pt-20">
-      {/* Shader Background */}
-      <ShaderBackground />
+      {/* Campus Illustration Background */}
+      <div className="absolute inset-0 z-0" aria-hidden="true">
+        {/* Base image: anchored to the bottom so the building/trees always sit at the base
+            while the purple sky fills the space behind the content on any screen size */}
+        <div
+          className="absolute inset-0 bg-no-repeat"
+          style={{
+            backgroundImage: `url('/hero-campus-bg.png')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center bottom',
+          }}
+        />
+        {/* Purple sky extension so the top never shows a hard edge on tall/wide screens */}
+        <div
+          className="absolute inset-x-0 top-0 h-2/3"
+          style={{
+            background: `linear-gradient(to bottom, #2a1b4d 0%, rgba(42, 27, 77, 0.4) 60%, transparent 100%)`,
+          }}
+        />
+        {/* Readability overlay behind the hero content */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: `radial-gradient(ellipse 80% 60% at 50% 40%, rgba(9, 9, 11, 0.65) 0%, rgba(9, 9, 11, 0.35) 45%, transparent 75%)`,
+          }}
+        />
+      </div>
 
       {/* Main Content */}
       <motion.div
@@ -70,15 +86,14 @@ export const Hero = () => {
         {/* Badge */}
         <motion.div variants={itemVariants} className="mb-6 inline-block">
           <div
-            className="px-4 py-2 rounded-full text-xs sm:text-sm font-semibold inline-flex items-center gap-2"
+            className="px-4 py-1.5 rounded-full text-xs font-medium uppercase tracking-[0.15em] inline-flex items-center gap-2 text-purple-200"
             style={{
-              color: THEME_COLORS.primary,
-              border: `1px solid ${THEME_COLORS.primary}`,
-              background: `rgba(124, 58, 237, 0.1)`,
+              border: `1px solid rgba(124, 58, 237, 0.4)`,
+              background: `rgba(124, 58, 237, 0.08)`,
               backdropFilter: 'blur(10px)',
             }}
           >
-            <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
+            <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
             Backed by AWS
           </div>
         </motion.div>
@@ -86,10 +101,9 @@ export const Hero = () => {
         {/* Main Headline */}
         <motion.h1
           variants={itemVariants}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight"
+          className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 tracking-tight leading-[1.05]"
           style={{
             color: THEME_COLORS.white,
-            textShadow: `0 0 30px rgba(124, 58, 237, 0.3)`,
           }}
         >
           AWS{' '}
@@ -100,7 +114,7 @@ export const Hero = () => {
         {/* Subheading */}
         <motion.p
           variants={itemVariants}
-          className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 leading-relaxed max-w-3xl mx-auto"
+          className="text-base sm:text-lg text-gray-300/90 mb-10 leading-relaxed max-w-2xl mx-auto text-pretty"
         >
           Empowering University of Karachi students with Cloud Computing, AI, DevOps, and modern software
           engineering through workshops, projects, hackathons and community events.
@@ -115,45 +129,41 @@ export const Hero = () => {
             href="https://www.meetup.com/aws-cloud-club-at-univ-of-karachi/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative px-8 py-4 rounded-lg font-semibold text-white text-base sm:text-lg transition-all duration-300 overflow-hidden inline-flex items-center justify-center gap-2"
+            className="group relative px-7 py-3.5 rounded-xl font-medium text-white text-base transition-all duration-300 overflow-hidden inline-flex items-center justify-center gap-2"
             style={{
               background: `linear-gradient(135deg, ${THEME_COLORS.primary}, ${THEME_COLORS.darkPurple})`,
-              boxShadow: `0 0 30px ${THEME_COLORS.primary}60`,
-              border: `1px solid rgba(255, 255, 255, 0.2)`,
+              boxShadow: `0 8px 30px -8px ${THEME_COLORS.primary}`,
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.boxShadow = `0 0 50px ${THEME_COLORS.primary}80, 0 0 100px ${THEME_COLORS.primary}40`;
+              e.currentTarget.style.boxShadow = `0 12px 40px -8px ${THEME_COLORS.primary}`;
               e.currentTarget.style.transform = 'translateY(-2px)';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.boxShadow = `0 0 30px ${THEME_COLORS.primary}60`;
+              e.currentTarget.style.boxShadow = `0 8px 30px -8px ${THEME_COLORS.primary}`;
               e.currentTarget.style.transform = 'translateY(0)';
             }}
           >
             Join Meetup Group
-            <ExternalLink size={18} className="group-hover:translate-x-1 transition-transform" />
+            <ExternalLink size={17} className="group-hover:translate-x-0.5 transition-transform" />
           </a>
 
           <a
             href="https://chat.whatsapp.com/KeybuWmbJMdJxQ5uu2cpmd?mode=gi_t"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-8 py-4 rounded-lg font-semibold text-white text-base sm:text-lg transition-all duration-300 inline-block"
+            className="px-7 py-3.5 rounded-xl font-medium text-white text-base transition-all duration-300 inline-block"
             style={{
-              background: `rgba(124, 58, 237, 0.15)`,
+              background: `rgba(124, 58, 237, 0.08)`,
               backdropFilter: 'blur(10px)',
               WebkitBackdropFilter: 'blur(10px)',
-              border: `1.5px solid ${THEME_COLORS.primary}`,
-              boxShadow: `0 0 20px ${THEME_COLORS.primary}40`,
+              border: `1px solid rgba(124, 58, 237, 0.4)`,
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = `rgba(124, 58, 237, 0.25)`;
-              e.currentTarget.style.boxShadow = `0 0 40px ${THEME_COLORS.primary}60`;
+              e.currentTarget.style.background = `rgba(124, 58, 237, 0.16)`;
               e.currentTarget.style.transform = 'translateY(-2px)';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.background = `rgba(124, 58, 237, 0.15)`;
-              e.currentTarget.style.boxShadow = `0 0 20px ${THEME_COLORS.primary}40`;
+              e.currentTarget.style.background = `rgba(124, 58, 237, 0.08)`;
               e.currentTarget.style.transform = 'translateY(0)';
             }}
           >
