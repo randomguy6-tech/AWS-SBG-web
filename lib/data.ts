@@ -14,7 +14,7 @@ export const team = [
     id: 2,
     name: "Arham Sheikh",
     role: "Event Management Lead",
-    image: "/arham-sheikh.png",
+    image: "/shaheer.png",
     socials: {
       linkedin: "#",
       twitter: "#",
@@ -25,7 +25,7 @@ export const team = [
     id: 3,
     name: "Shaheer",
     role: "Tech Lead",
-    image: "/shaheer.png",
+    image: "/arham-sheikh.png",
     socials: {
       linkedin: "#",
       twitter: "#",
