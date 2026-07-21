@@ -193,8 +193,11 @@ export const Hero = () => {
             <ExternalLink size={18} className="group-hover:translate-x-1 transition-transform" />
           </a>
 
-          <button
-            className="px-8 py-4 rounded-lg font-semibold text-white text-base sm:text-lg transition-all duration-300"
+          <a
+            href="https://chat.whatsapp.com/KeybuWmbJMdJxQ5uu2cpmd?mode=gi_t"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-8 py-4 rounded-lg font-semibold text-white text-base sm:text-lg transition-all duration-300 inline-block"
             style={{
               background: `rgba(124, 58, 237, 0.15)`,
               backdropFilter: 'blur(10px)',
@@ -214,7 +217,7 @@ export const Hero = () => {
             }}
           >
             Explore Community
-          </button>
+          </a>
         </motion.div>
 
         {/* Scroll Indicator */}
