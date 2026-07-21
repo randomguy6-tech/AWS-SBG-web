@@ -5,12 +5,10 @@ import Hero from '@/components/hero';
 import About from '@/components/about';
 import Domains from '@/components/domains';
 import Benefits from '@/components/benefits';
-import AWSServices from '@/components/aws-services';
 import Leadership from '@/components/leadership';
 import Gallery from '@/components/gallery';
 import Testimonials from '@/components/testimonials';
 import FAQ from '@/components/faq';
-import JoinCommunity from '@/components/join-community';
 import Footer from '@/components/footer';
 
 export default function Home() {
@@ -27,7 +25,6 @@ export default function Home() {
         <Domains />
       </div>
       <Benefits />
-      <AWSServices />
       <div id="leadership">
         <Leadership />
       </div>
@@ -39,9 +36,6 @@ export default function Home() {
       </div>
       <div id="faq">
         <FAQ />
-      </div>
-      <div id="contact">
-        <JoinCommunity />
       </div>
       <Footer />
     </main>

@@ -99,33 +99,20 @@ const Footer = () => {
             transition={{ delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <h4 className="font-bold text-white mb-4">Follow Us</h4>
-            <div className="flex gap-3">
-              {socials.map((social) => {
-                const IconComponent = iconMap[social.icon];
-                return (
-                  <motion.a
-                    key={social.name}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 rounded-lg transition-all"
-                    style={{
-                      background: 'rgba(124, 58, 237, 0.15)',
-                      border: '1px solid rgba(124, 58, 237, 0.3)',
-                    }}
-                    whileHover={{
-                      scale: 1.1,
-                      backgroundColor: 'rgba(124, 58, 237, 0.3)',
-                    }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <div className="text-purple-400 hover:text-purple-300 transition-colors">
-                      {IconComponent && <IconComponent size={20} />}
-                    </div>
-                  </motion.a>
-                );
-              })}
+            <h4 className="font-bold text-white mb-4">Connect</h4>
+            <div className="space-y-3">
+              {socials.map((social) => (
+                <motion.a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-gray-400 hover:text-purple-400 transition-colors text-sm"
+                  whileHover={{ x: 5 }}
+                >
+                  {social.name}
+                </motion.a>
+              ))}
             </div>
           </motion.div>
         </div>
