@@ -134,10 +134,10 @@ const Footer = () => {
           className="text-center text-gray-400 text-sm"
         >
           <p>
-            Built with <span className="text-red-500">❤️</span> by AWS Student Builder Group UOK
+            AWS Student Builder Group UOK
           </p>
           <p className="mt-2 text-xs text-gray-500">
-            © 2024 AWS Student Builder Group at University of Karachi. All rights reserved.
+            © 2026 AWS Student Builder Group at University of Karachi. All rights reserved.
           </p>
         </motion.div>
       </div>

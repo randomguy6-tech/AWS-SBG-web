@@ -29,7 +29,7 @@ const Leadership = () => {
         className="mb-12 text-center"
       >
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">
-          Meet the Leadership Team
+          Meet the Core Team
         </h2>
         <p className="text-gray-400 text-lg max-w-2xl mx-auto">
           Incredible individuals driving AWS SBG UOK forward

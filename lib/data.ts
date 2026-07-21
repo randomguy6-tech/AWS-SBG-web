@@ -45,8 +45,8 @@ export const team = [
   },
   {
     id: 5,
-    name: "Sami",
-    role: "Social Media Lead",
+    name: "Rohaan",
+    role: "Marketing Lead",
     image: "/sami.png",
     socials: {
       linkedin: "#",
@@ -56,8 +56,8 @@ export const team = [
   },
   {
     id: 6,
-    name: "Rohaan",
-    role: "Marketing Lead",
+    name: "Sami",
+    role: "Social Media Lead",
     image: "/rohaan.png",
     socials: {
       linkedin: "#",

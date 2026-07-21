@@ -16,7 +16,7 @@ const About = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">
-            About AWS SBG UOK
+            Our Vision
           </h2>
 
           <motion.p
@@ -26,7 +26,7 @@ const About = () => {
             viewport={{ once: true }}
             className="text-lg text-gray-300 leading-relaxed"
           >
-            We are active 40 members of team dedicated to empowering students at the University of Karachi with cloud computing knowledge and real-world AWS experience.
+            We are active 40+ members of team dedicated to empowering students at the University of Karachi with cloud computing knowledge and real world AWS experience.
           </motion.p>
         </motion.div>
 
