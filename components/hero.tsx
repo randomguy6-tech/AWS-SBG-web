@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 
 const THEME_COLORS = {
   primary: '#7C3AED',
@@ -14,14 +14,6 @@ const THEME_COLORS = {
 
 // Main Hero Component
 export const Hero = () => {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null;
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
